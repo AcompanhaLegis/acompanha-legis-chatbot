@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  rasa-core_1:
+    build: .
+    command: ["rasa", "run", "--cors", "*", "--endpoints", "endpoints.yml"]
+    volumes:
+      - "./:/opt/chatbot"
+    depends_on:
+      - redis
+      - rasa-actions
+
+  rasa-core_2:
+    build: .
+    command: ["rasa", "run", "--cors", "*"]
+    volumes:
+      - "./:/opt/chatbot"
+    depends_on:
+      - redis
+
+  rasa-actions:
+    build: .
+    command: ["rasa", "run", "actions", "--cors", "*", "-v"]
+    volumes:
+      - "./:/opt/chatbot"
+    depends_on:
+      - redis
+
+  front:
+    image: python:3.8-slim
+    volumes:
+      - "./front/:/etc/www/:ro"
+    command: ['python', '-m', 'http.server', '--bind', '0.0.0.0', '--directory', '/etc/www/', '8080']
+    ports:
+      - "8080:8080"
+
+  load_balancer:
+    image: haproxy:2.3
+    volumes:
+      - "./docker/haproxy/:/usr/local/etc/haproxy:ro"
+    ports:
+      - "5005:5005"
+      - "32700:32700"
+    depends_on:
+      - rasa-core_1
+      - rasa-core_2
+
+  redis:
+    image: redis:6-alpine

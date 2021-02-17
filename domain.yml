@@ -1,0 +1,40 @@
+version: "2.0"
+
+intents:
+  - greet
+  - partido/deputados
+  - goodbye
+
+entities:
+  - deputado
+  - partido
+
+responses:
+  utter_greet:
+  - text: "Oi, em que posso ajudar?"
+  - text: "Em que posso ajudar?"
+  - text: "Olá, posso ajudar?"
+
+  utter_partido/deputados:
+  - text: "Esses sao os deputados: {deputados}"
+
+  utter_partido/not_found:
+  - text: "Nao encontrei informacoes sobre {partido}. Quer tentar outro?"
+
+  utter_goodbye:
+  - text: "Tchau"
+
+slots:
+  deputados:
+    type: list
+    influence_conversation: false
+  partido:
+    type: text
+    influence_conversation: true
+
+actions:
+  - action_deps_by_partido
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

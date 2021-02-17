@@ -1,0 +1,101 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - oi
+    - ola
+    - olá
+    - bom dia
+    - boa tarde
+    - boa noite
+    - hey
+    - e ai
+    - e aí
+    - e aew
+    - iaí
+    - eaew
+
+- intent: partido/deputados
+  examples: |
+    - Quais os [deputados](deputado) do [PT](partido)?
+    - Que [deputados](deputado) são do [PTB](partido)?
+    - Quais [políticos](deputado) fazem parte do [Partido Verde](partido)?
+    - Quais são os [politicos](deputado) do [DEM](partido)?
+    - Quem sao os [deputados)(deputado) do [PDT](partido)?
+    - Quais os [integrantes](deputado) do [MDB](partido)?
+    - Quais os [membros](deputado) atuais do [avante](partido)?
+
+- intent: goodbye
+  examples: |
+    - tchau
+
+- synonym: deputado
+  examples: |
+    - deputado
+    - politico
+    - político
+
+- lookup: partido
+  examples: |
+    - MDB
+    - MOVIMENTO DEMOCRÁTICO BRASILEIRO
+    - PTB
+    - PARTIDO TRABALHISTA BRASILEIRO
+    - PDT
+    - PARTIDO DEMOCRÁTICO TRABALHISTA
+    - PT
+    - PARTIDO DOS TRABALHADORES
+    - DEM
+    - DEMOCRATAS
+    - PCdoB
+    - PARTIDO COMUNISTA DO BRASIL
+    - PSB
+    - PARTIDO SOCIALISTA BRASILEIRO
+    - PSDB
+    - PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA
+    - PTC
+    - PARTIDO TRABALHISTA CRISTÃO
+    - PSC
+    - PARTIDO SOCIAL CRISTÃO
+    - PMN
+    - PARTIDO DA MOBILIZAÇÃO NACIONAL
+    - CIDADANIA
+    - PV
+    - PARTIDO VERDE
+    - AVANTE
+    - PP
+    - PROGRESSISTAS
+    - PSTU
+    - PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO
+    - PCB
+    - PARTIDO COMUNISTA BRASILEIRO
+    - PRTB
+    - PARTIDO RENOVADOR TRABALHISTA BRASILEIRO
+    - DC
+    - DEMOCRACIA CRISTÃ
+    - PCO
+    - PARTIDO DA CAUSA OPERÁRIA
+    - PODE
+    - PODEMOS
+    - PSL
+    - PARTIDO SOCIAL LIBERAL
+    - REPUBLICANOS 
+    - PSOL
+    - PARTIDO SOCIALISMO E LIBERDADE
+    - PL
+    - PARTIDO LIBERAL
+    - PSD
+    - PARTIDO SOCIAL DEMOCRÁTICO
+    - PATRIOTA
+    - PROS
+    - PARTIDO REPUBLICANO DA ORDEM SOCIAL
+    - SOLIDARIEDADE
+    - NOVO
+    - PARTIDO NOVO
+    - REDE
+    - REDE SUSTENTABILIDADE
+    - PMB
+    - PARTIDO DA MULHER BRASILEIRA
+    - UP
+    - UNIDADE POPULAR
