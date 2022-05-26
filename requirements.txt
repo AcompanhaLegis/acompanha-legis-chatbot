@@ -119,7 +119,7 @@ tqdm==4.50.2
 twilio==6.45.4
 typeguard==2.10.0
 tzlocal==2.1
-ujson==3.2.0
+ujson==5.2.0
 urllib3==1.26.5
 uvloop==0.14.0
 wcwidth==0.2.5
